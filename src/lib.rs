@@ -53,4 +53,20 @@ impl Builder {
 
         Ok(())
     }
+
+    #[cfg(feature = "auto_install")]
+    pub fn auto_install(&self) -> Result<(), Box<dyn std::error::Error>> {
+        let mut steam_dir =
+            steamlocate::SteamDir::locate().ok_or("could not locate steam install directory")?;
+        match steam_dir.app(&730) {
+            None => Err("could not locate CSGO install directory".into()),
+            Some(csgo) => {
+                let mut csgo_path = csgo.path.clone();
+                csgo_path.push("csgo");
+                csgo_path.push("cfg");
+
+                self.install(csgo_path)
+            }
+        }
+    }
 }
