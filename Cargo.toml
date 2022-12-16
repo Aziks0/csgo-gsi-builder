@@ -1,6 +1,11 @@
 [package]
 name = "csgo-gsi-builder"
+description = "Build CSGO Game State Integration config files"
 version = "0.1.0"
+authors = ["Benjamin DIDIER <contact@aziks.aleeas.com>"]
+repository = "https://github.com/Aziks0/csgo-gsi-builder"
+license = "MPL-2.0"
+keywords = ["csgo"]
 edition = "2021"
 
 [features]
