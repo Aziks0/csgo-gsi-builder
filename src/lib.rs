@@ -1,6 +1,8 @@
 //! CSGO Game State Integration builder
 
-pub mod components;
+mod components;
+pub use components::Components;
+
 pub mod config;
 
 use std::fs;
